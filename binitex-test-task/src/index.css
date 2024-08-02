@@ -1,0 +1,83 @@
+body{
+    background-color: hsla(0, 0%, 90%, 0.5);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.table-box{
+    margin-left: 15px;
+}
+.period-box{
+
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-left: 15px; 
+}
+.datePicker{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.tab-panel{
+    margin-left: 15px;
+}
+.filter-fields{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.filter-field{
+    margin: 5px;
+}
+.resetBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140%;
+    margin-bottom: 20px;
+}
+.resetBtn button{
+    padding: 5px;
+    background-color: rgba(6, 183, 243, 0.314);
+    border-radius: 5px;
+    border: none; 
+    cursor: pointer;
+}
+.resetBtn button:hover{
+    background-color: hsla(195, 95%, 40%, 0.314);
+}
+.center-text {
+    text-align: center;
+}
+  
+.table-cell {
+    border: 1px solid #ddd;
+}
+.table-header{
+    text-align: center;
+    border: 1px solid hsl(0, 0%, 70%);
+    background-color: rgba(6, 183, 243, 0.314);
+    width: 150px;
+}
+.table-cell{
+    border: 1px solid hsl(0, 0%, 70%);
+    background-color: white;
+    padding: 5px;
+}
+.pagination-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130%;
+    margin-top: 15px; 
+}
+.page-button{
+    margin: 1px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.page-count{
+    margin-right: 5px;
+}
+.chart-container{
+    max-width: 1200px;
+    max-height: 500px;
+}
