@@ -18,7 +18,7 @@ const Chart = ({ data }) => {
     labels,
     datasets: [
       {
-        label: `Случаев заболевания`,
+        label: `Cases`,
         data: cases,
         borderColor: 'lightblue',
         backgroundColor: 'lightblue',
@@ -26,7 +26,7 @@ const Chart = ({ data }) => {
         tension: 0.4,
       },
       {
-        label: `Смертей`,
+        label: `Deaths`,
         data: deaths,
         borderColor: 'rgba(75,192,192,1)',
         backgroundColor: 'rgba(75,192,192,1)',
@@ -61,7 +61,7 @@ const Chart = ({ data }) => {
     <Card>
       <CardContent>
         <Typography variant="h6" component="div" gutterBottom>
-          Выбрать страну
+          Choose a country
         </Typography>
         <FormControl fullWidth>
           <InputLabel id="country-select-label"></InputLabel>

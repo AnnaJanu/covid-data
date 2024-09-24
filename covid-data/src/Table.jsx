@@ -239,18 +239,18 @@ function Table(){
     }
 
     const columns = useMemo(() => [
-        {Header: 'Страна', accessor: 'country',},
-        {Header: 'Случаев заболевания', accessor: 'cases', 
+        {Header: 'Country', accessor: 'country',},
+        {Header: 'Cases', accessor: 'cases', 
             Cell: ({ value }) => (value !== null && value !== undefined && !isNaN(value) && isFinite(value) ? value : 'N/A')},
-        {Header: 'Смерти', accessor: 'deaths', 
+        {Header: 'Deaths', accessor: 'deaths', 
             Cell: ({ value }) => (value !== null && value !== undefined && !isNaN(value) && isFinite(value) ? value : 'N/A')},
-        {Header: 'Случаев заболевания всего', accessor: 'totalCases', 
+        {Header: 'Cases total', accessor: 'totalCases', 
             Cell: ({ value }) => (value !== null && value !== undefined && !isNaN(value) && isFinite(value) ? value : 'N/A')},
-        {Header: 'Смертей всего', accessor: 'totalDeaths', 
+        {Header: 'Deaths total', accessor: 'totalDeaths', 
             Cell: ({ value }) => (value !== null && value !== undefined && !isNaN(value) && isFinite(value) ? value : 'N/A')},
-        {Header: 'Случаев на 1000 жителей', accessor: 'casesPerPopulation', 
+        {Header: 'Cases per 1000 people', accessor: 'casesPerPopulation', 
             Cell: ({ value }) => (value !== null && value !== undefined && !isNaN(value) && isFinite(value) ? value : 'N/A')},
-        {Header: 'Смертей на 1000 жителей', accessor: 'deathsPerPopulation', 
+        {Header: 'Deaths per 1000 people', accessor: 'deathsPerPopulation', 
             Cell: ({ value }) => (value !== null && value !== undefined && !isNaN(value) && isFinite(value) ? value : 'N/A')},
     ], []);
 
@@ -301,15 +301,15 @@ function Table(){
     }
     const handleTabChange = (event, newTabValue) => setTabValue(newTabValue);
     
-    return(<>{loading ? (<span>Загрузка...</span>) : (
+    return(<>{loading ? (<span>Loading...</span>) : (
             <div className="table-box">
-                <div className="period-box"><span>Период от{<DatePicker className="datePicker" selected={startDate} onChange={handleStartDateChange }/>} 
-                    до {<DatePicker className="datePicker" selected={endDate} onChange={handleEndDateChange}/>}</span></div><br/>
+                <div className="period-box"><span>Period from{<DatePicker className="datePicker" selected={startDate} onChange={handleStartDateChange }/>} 
+                    to {<DatePicker className="datePicker" selected={endDate} onChange={handleEndDateChange}/>}</span></div><br/>
                 
                 <div>
                     <Tabs className="tab-panel" value={tabValue} onChange={handleTabChange}>
-                        <Tab label="Таблица"/>
-                        <Tab label="График"/>
+                        <Tab label="Table"/>
+                        <Tab label="Graph"/>
                     </Tabs>
 
                     <TabPanel value={tabValue} index={0}>
@@ -317,18 +317,18 @@ function Table(){
                     <div className='filter-fields'>
                         <FilterByCountry filter={globalFilter} setFilter={setGlobalFilter} className="filter-field"/>
                         <select value={paramToFilterBy} onChange={handleFilterParameterChange} className="filter-field">
-                            <option value="">Сортировать по полю...</option>
-                            <option value="cases">Случаев за период</option>
-                            <option value="deaths">Смертей за период</option>
-                            <option value="totalCases">Случаев всего</option>
-                            <option value="totalDeaths">Смертей всего</option>
-                            <option value="casesPerPopulation">Случаев на 1 000 жителей</option>
-                            <option value="deathsPerPopulation">Смертей на 1 000 жителей</option>
+                            <option value="">Sort by field...</option>
+                            <option value="cases">Cases</option>
+                            <option value="deaths">Deaths</option>
+                            <option value="totalCases">Cases total</option>
+                            <option value="totalDeaths">Deaths total</option>
+                            <option value="casesPerPopulation">Cases per 1000 people</option>
+                            <option value="deathsPerPopulation">Deaths per 1000 people</option>
                         </select>
-                        <input onChange={handleMinFilterChange} value={paramToFilterByMin} placeholder='значение от' className="filter-field"></input>
-                        <input onChange={handleMaxFilterChange} value={paramToFilterByMax} placeholder='значение до' className="filter-field"></input>
+                        <input onChange={handleMinFilterChange} value={paramToFilterByMin} placeholder='value from' className="filter-field"></input>
+                        <input onChange={handleMaxFilterChange} value={paramToFilterByMax} placeholder='value to' className="filter-field"></input>
                     </div>
-                    <div className="resetBtn"><button onClick={handleResetFilter}>Сбросить фильтры</button></div>
+                    <div className="resetBtn"><button onClick={handleResetFilter}>Reset filters</button></div>
                     <table {...getTableProps()} style={{ borderCollapse: 'collapse' }}>
                     <thead>
                         {headerGroups.map((headerGroup) => (
@@ -359,9 +359,9 @@ function Table(){
                     </table> 
                     <div className="pagination-box">
                         <span className="page-count">
-                            Страница{' '}
+                            Page{' '}
                             <strong>
-                                {pageIndex + 1} из {pageOptions.length}
+                                {pageIndex + 1} from {pageOptions.length}
                             </strong>{' '}
                         </span>
                         <button className="page-button" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>◀◀</button>

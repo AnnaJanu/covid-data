@@ -3,7 +3,7 @@ export const FilterByCountry = ({filter, setFilter}) => {
     return(
         <span>
             <input type='text' value={filter || ''} 
-            placeholder='Поиск по стране'
+            placeholder='Search by country'
             onChange={e => setFilter(e.target.value)}/>
         </span>
     );
